@@ -3,7 +3,7 @@ import { signup, login, logout, current } from "./auth-operations";
 
 const initialState = {
     user: {},
-    token: "",
+    token: null,
     isLogin: false,
     loading: false,
     isLoadingUser: false,
@@ -46,10 +46,10 @@ const authSlice = createSlice({
             store.loading = true;
             store.error = null;
         },
-        [logout.fulfilled]: (store, {payload}) => {
+        [logout.fulfilled]: (store) => {
             store.loading = false;
             store.user = {};
-            store.token = "";
+            store.token = null;
             store.isLogin = false;
         },
         [logout.rejected]: (store, {payload}) => {
@@ -62,7 +62,7 @@ const authSlice = createSlice({
         },
         [current.fulfilled]: (store, {payload}) => {
             store.isLoadingUser = false;
-            store.user = payload.user;
+            store.user = payload;
             store.isLogin = true;
         },
         [current.rejected]: (store, {payload}) => {

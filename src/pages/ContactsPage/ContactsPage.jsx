@@ -1,8 +1,6 @@
-import React from 'react'
 import { useGetContactsQuery } from 'redux/contacts/contacts-api';
 import { ContactForm, ContactList, Filter } from '../../components'
 import { MainBox, Box, MainTitle, SectionTitle } from 'components/App/App.styled';
-
 
 export default function ContactsPage () {
   const {data: contacts, isLoading, isSuccess, isError, error} = useGetContactsQuery()

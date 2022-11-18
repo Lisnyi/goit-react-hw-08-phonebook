@@ -2,7 +2,6 @@ import LoginForm from "components/App/LoginForm/LoginForm"
 import { useDispatch } from "react-redux"
 import { login } from "redux/auth/auth-operations"
 
-
 export default function Login() {
   const dispatch = useDispatch()
 

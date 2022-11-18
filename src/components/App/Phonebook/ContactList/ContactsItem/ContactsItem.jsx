@@ -1,6 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Button } from "components/App/App.styled"
-import { ContactElement } from "../ContactList.styled"
+import { ContactElement } from "../ContactsList.styled"
 import { useRemoveContactMutation } from "redux/contacts/contacts-api"
 
 export const ContactItem = ({id, number, name}) => {

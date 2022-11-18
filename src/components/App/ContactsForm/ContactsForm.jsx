@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import * as yup from 'yup';
 import { Button } from '../App.styled';
-import { NewContactForm, Input, Label, Error } from './ContactForm.styled';
+import { NewContactForm, Input, Label, Error } from './ContactsForm.styled';
 
 
 export const ContactForm = ({contacts}) => {
