@@ -1,13 +1,14 @@
 import { nanoid } from 'nanoid'
 import { useAddContactMutation } from 'redux/contacts/contacts-api';
 import { Formik } from 'formik';
+import PropTypes from 'prop-types'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import * as yup from 'yup';
 import { Button } from '../App.styled';
 import { NewContactForm, Input, Label, Error } from './ContactsForm.styled';
 
 
-export const ContactForm = ({contacts}) => {
+export const ContactsForm = ({contacts}) => {
     const [addContact, {isLoading}] = useAddContactMutation()
 
     const initialValues = {
@@ -75,3 +76,7 @@ export const ContactForm = ({contacts}) => {
                 )}
             </Formik>
     }
+
+    ContactsForm.propTypes = {
+        contacts: PropTypes.arrayOf(PropTypes.object)
+      }

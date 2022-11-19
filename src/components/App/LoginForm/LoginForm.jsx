@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { nanoid } from "nanoid";
+import PropTypes from 'prop-types'
 import useForm from "shared/hooks/useForm";
 import initialState from "./initiallState";
 import fields from "./fields";
@@ -19,4 +20,8 @@ export default function LoginForm ({onSubmit}) {
             <button>Login</button>
         </form>
     )
+}
+
+LoginForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
 }

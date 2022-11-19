@@ -4,7 +4,6 @@ import PublicRoute from "shared/components/PublicRoute/PublicRoute"
 import PrivateRoute from "shared/components/PrivateRoute/PrivateRoute"
 import Navigation from "pages/Navigation/Navigation"
 
-
 const Register = lazy(() => import("pages/RegisterPage/RegisterPage"))
 const Login = lazy(() => import("pages/LoginPage/LoginPage"))
 const ContactsPage = lazy(() => import("pages/ContactsPage/ContactsPage"))
