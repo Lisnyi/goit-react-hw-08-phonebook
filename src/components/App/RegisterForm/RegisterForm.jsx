@@ -23,7 +23,7 @@ export default function RegisterForm() {
 
     const schema = yup.object().shape({
         name: yup.string()
-            .matches(/([A-Z]{1}[a-z]{1,14} [A-Z]{1}[a-z]{1,14})|([А-Я]{1}[а-я]{1,14} [А-Я]{1}[а-я]{1,14})/g, "Name may contain only letters and spaces. For example Jacob Mercer, Charles Batz")
+            .matches(/([A-Z]{1}[a-z]{1,14} [A-Z]{1}[a-z]{1,14})|([А-Я]{1}[а-я]{1,14} [А-Я]{1}[а-я]{1,14})/g, "Name must contain two words starting with capital letters and separated by a space")
             .required(),
         email: yup.string()
             .email()
@@ -40,9 +40,9 @@ export default function RegisterForm() {
         email,
         password
         }
-
         dispatch(signup(newUser))
-        resetForm()
+        .unwrap()
+        .then(() =>  resetForm())
     }
  
     return (

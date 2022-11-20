@@ -35,7 +35,8 @@ export default function LoginForm () {
         }
         
         dispatch(login(user))
-        resetForm()
+        .unwrap()
+        .then(() =>  resetForm())
     }
  
     return (
