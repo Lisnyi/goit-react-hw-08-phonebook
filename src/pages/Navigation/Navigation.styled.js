@@ -1,16 +1,15 @@
 import styled from "styled-components";
+import { Conteiner } from "components/App/App.styled";
 
-const Header = styled.header`
-    display: flex;
-    justify-content: end;
+export const Header = styled.header`
     margin: 0;
-    padding: 10px;
+    padding: 16px 0;
     box-shadow: 0px 5px 4px -2px rgba(0,0,0,0.6);
-    margin-bottom: 15px;
     
     nav {
-        height: 33px;
+        height: 40px;
         display: flex;
+        align-items: center;
     }
     a {
         margin-right: 15px;
@@ -19,7 +18,7 @@ const Header = styled.header`
         text-decoration: none;
         color: black;
         &.active{
-            color: darkred;
+            color: darkblue;
         }
         &:hover, &:focus {
             text-decoration: underline;
@@ -35,4 +34,15 @@ const Header = styled.header`
 
 `
 
-export default Header
+export const HeaderConteiner = styled(Conteiner)`
+    display: flex;
+    justify-content: end;
+
+    div {
+        margin-right: 10px;
+        
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+`

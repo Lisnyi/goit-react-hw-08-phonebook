@@ -1,14 +1,18 @@
 import styled from "styled-components";
 
-export const MainBox = styled.main`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 16px;
+export const Main = styled.main`
+
 `
 
-export const Box = styled.section`
-    margin: 0;
-    padding: 10px;
+export const Section = styled.section`
+    padding-top: 16px;
+    padding-bottom: 16px;
+`
+
+export const Conteiner = styled.div`
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 1366px;
 `
 
 export const MainTitle = styled.h1`
@@ -22,22 +26,4 @@ export const MainTitle = styled.h1`
 export const SectionTitle = styled.h2`
     margin-top: 0;
     margin-bottom: 8px;
-`
-
-export const Button = styled.button`
-    background-color: white;
-    border: 1px solid grey;
-    border-radius: 3px;
-    max-width: 100px;
-    padding: 3px;
-
-    &:hover, &:focus {
-        background-color: blue;
-        color: white;
-    }
-
-    &:disabled{
-        background-color: grey;
-        color: white;
-    }
 `

@@ -3,7 +3,7 @@ import { Suspense, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { getIsLogin, getToken } from "redux/auth/auth-selectors"
 import UserMenu from "components/App/UserMenu/UserMenu"
-import Header from "./Navigation.styled"
+import { Header, HeaderConteiner } from "./Navigation.styled"
 import { current } from "redux/auth/auth-operations"
 
 export default function Navigation() {
@@ -28,15 +28,15 @@ export default function Navigation() {
   return (
     <>
         <Header>
-          <nav>    
-            {isLogin
-              ? <UserMenu/>
-              : <>
-                  <NavLink to="/register" end>Register</NavLink>
-                  <NavLink to="/login">Login</NavLink>
-                </>
-            } 
-          </nav>
+          <HeaderConteiner>   
+              {isLogin
+                ? <UserMenu/>
+                : <nav>
+                    <NavLink to="/register" end>Register</NavLink>
+                    <NavLink to="/login">Login</NavLink>
+                  </nav>
+              }
+          </HeaderConteiner>
         </Header>
         <Suspense fallback={<p>Loading...</p>}>
           <Outlet/>

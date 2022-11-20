@@ -12,7 +12,7 @@ export const FilterLabel = styled.label`
 `
 
 export const FilterInput = styled.input`
-    width: 400px;
+    max-width: 400px;
     padding: 3px;
     padding-left: 10px;
     border: none;

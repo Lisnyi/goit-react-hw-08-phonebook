@@ -4,8 +4,9 @@ import { Formik } from 'formik';
 import PropTypes from 'prop-types'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import * as yup from 'yup';
-import { Button } from '../App.styled';
-import { NewContactForm, Input, Label, Error } from './ContactsForm.styled';
+// import { Button } from '../App.styled';
+import { NewContactForm, Input, Label, Error } from "shared/styles/Form.styled";
+import Button from '@mui/material/Button';
 
 
 export const ContactsForm = ({contacts}) => {
@@ -71,7 +72,7 @@ export const ContactsForm = ({contacts}) => {
                         touched={touched.number ? 1 : 0}
                     />
                     <Error name="number" component="span"/>
-                    <Button type='submit' disabled={isLoading}>{isLoading ? 'Adding...' : 'Add contact'}</Button>
+                    <Button variant="contained" type='submit' disabled={isLoading}>{isLoading ? 'Adding...' : 'Add new contact'}</Button>
                 </NewContactForm>
                 )}
             </Formik>

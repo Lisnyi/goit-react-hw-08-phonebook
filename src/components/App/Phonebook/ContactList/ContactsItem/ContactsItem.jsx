@@ -1,7 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import PropTypes from 'prop-types';
-import { Button } from "components/App/App.styled"
-import { ContactElement } from "../ContactsList.styled"
+import LoadingButton from '@mui/lab/LoadingButton';
+import { ContactElement, ContactName, ContactNumber, ContactContainer } from "../ContactsList.styled"
 import { useRemoveContactMutation } from "redux/contacts/contacts-api"
 
 export const ContactItem = ({id, number, name}) => {
@@ -12,8 +12,17 @@ export const ContactItem = ({id, number, name}) => {
     }
 
     return  <ContactElement key={id}>
-                {name}: {number}
-                <Button onClick={() => deleteContact(id, name)} disabled={isLoading}>{isLoading ? "Deleting..." : "Delete"}</Button>
+                <ContactContainer>
+                    <ContactName>Name: {name}</ContactName>
+                    <ContactNumber>Number: {number}</ContactNumber>
+                </ContactContainer>
+                <LoadingButton
+                    size="small"
+                    variant="contained"
+                    onClick={() => deleteContact(id, name)}
+                    disabled={isLoading}
+                    loading={isLoading}
+                    >{isLoading ? "Deleting" : "Delete"}</LoadingButton>
             </ContactElement>
 }
 

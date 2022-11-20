@@ -1,18 +1,16 @@
 import LoginForm from "components/App/LoginForm/LoginForm"
-import { useDispatch } from "react-redux"
-import { login } from "redux/auth/auth-operations"
+import { MainTitle, Main, Conteiner, Section } from "components/App/App.styled"
 
 export default function Login() {
-  const dispatch = useDispatch()
-
-  const onLogin = (data) => {
-    dispatch(login(data));
-  }
 
   return (
-  <div>
-    <h1>Login page</h1>
-    <LoginForm onSubmit={onLogin}/>
-  </div>
+  <Main>
+    <Section>
+      <Conteiner>
+        <MainTitle>Login page</MainTitle>
+        <LoginForm/>
+      </Conteiner>
+    </Section>
+  </Main>
   )
 }

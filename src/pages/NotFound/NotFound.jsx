@@ -1,5 +1,16 @@
+import { Main, Conteiner, MainTitle, Section } from "components/App/App.styled"
+
+
 export default function NotFound() {
     return (
-      <p>Page not found</p>
+      <Main>
+        <Section>
+          <Conteiner>
+            <MainTitle>
+              Page not found
+            </MainTitle>
+          </Conteiner>
+        </Section>
+      </Main>
     )
   }

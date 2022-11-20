@@ -1,18 +1,20 @@
 import { useGetContactsQuery } from 'redux/contacts/contacts-api';
 import { ContactsForm, ContactsList, Filter } from '../../components'
-import { MainBox, Box, MainTitle, SectionTitle } from 'components/App/App.styled';
+import { Main, MainTitle, SectionTitle, Conteiner, Section } from 'components/App/App.styled';
 
 export default function ContactsPage () {
   const {data: contacts, isLoading, isSuccess, isError, error} = useGetContactsQuery()
 
   return (
-    <MainBox>
-      <MainTitle>Phonebook</MainTitle>
-      <Box>
-        <ContactsForm contacts={contacts}/>
-      </Box>
-  
-      <Box>
+    <Main>
+      <Section>
+        <Conteiner>
+          <MainTitle>Phonebook</MainTitle>
+          <ContactsForm contacts={contacts}/>
+        </Conteiner>
+      </Section>
+      <Section>
+        <Conteiner>
           <SectionTitle>Contacts</SectionTitle>
           <Filter/>
           {isSuccess && contacts.length
@@ -20,7 +22,8 @@ export default function ContactsPage () {
             : null}
           {isLoading && <p>Loading...</p>}
           {isError && <p>{error.message}</p>}
-      </Box>
-    </MainBox>
+        </Conteiner>
+      </Section>
+    </Main>
   )
 }
