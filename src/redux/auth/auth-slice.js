@@ -6,7 +6,6 @@ const initialState = {
     token: null,
     isLogin: false,
     loading: false,
-    isLoadingUser: false,
     error: null,
 }
 
@@ -57,16 +56,13 @@ const authSlice = createSlice({
             store.error = payload;
         },
         [current.pending]: (store) => {
-            store.isLoadingUser = true;
             store.error = null;
         },
         [current.fulfilled]: (store, {payload}) => {
-            store.isLoadingUser = false;
             store.user = payload;
             store.isLogin = true;
         },
         [current.rejected]: (store, {payload}) => {
-            store.isLoadingUser = false;
             store.error = payload;
         },
     }

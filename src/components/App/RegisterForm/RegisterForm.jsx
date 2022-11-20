@@ -2,11 +2,10 @@ import { nanoid } from "nanoid";
 import { Formik } from 'formik';
 import { useDispatch } from "react-redux";
 import * as yup from 'yup';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useMemo } from "react";
+import Button from '@mui/material/Button';
 import { signup } from "redux/auth/auth-operations";
 import { NewContactForm, Input, Label, Error } from "shared/styles/Form.styled";
-import Button from '@mui/material/Button';
 
 export default function RegisterForm() {
 
@@ -35,17 +34,14 @@ export default function RegisterForm() {
     });
 
     const handleSubmit = ({name, email, password}, {resetForm}) => {
+
         const newUser = {
         name,
         email,
         password
         }
-        try {
-            dispatch(signup(newUser))
-            Notify.success(`${name} successfully added`)
-        } catch (e) {
-            Notify.error(`${name} error`)
-        }
+
+        dispatch(signup(newUser))
         resetForm()
     }
  

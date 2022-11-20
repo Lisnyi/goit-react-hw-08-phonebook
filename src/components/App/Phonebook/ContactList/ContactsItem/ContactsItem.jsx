@@ -6,15 +6,18 @@ import { useRemoveContactMutation } from "redux/contacts/contacts-api"
 
 export const ContactItem = ({id, number, name}) => {
     const [removeContact, {isLoading}] = useRemoveContactMutation()
-    const deleteContact = async (id, name) => {
-        await removeContact(id)
-        Notify.success(`${name} successfully deleted`)
+    
+    const deleteContact = (id, name) => {
+        removeContact(id)
+        .unwrap()
+        .then(() => Notify.success(`${name} successfully deleted`))
+        .catch(({error}) => Notify.failure(error))
     }
 
     return  <ContactElement key={id}>
                 <ContactContainer>
-                    <ContactName>Name: {name}</ContactName>
-                    <ContactNumber>Number: {number}</ContactNumber>
+                    <ContactName><b>Name</b>: {name}</ContactName>
+                    <ContactNumber><b>Number</b>: {number}</ContactNumber>
                 </ContactContainer>
                 <LoadingButton
                     size="small"

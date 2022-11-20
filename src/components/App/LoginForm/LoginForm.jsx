@@ -1,13 +1,11 @@
 import { useMemo } from "react";
+import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
 import { Formik } from 'formik';
-import { useDispatch } from "react-redux";
+import Button from '@mui/material/Button';
 import * as yup from 'yup';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { NewContactForm, Input, Label, Error } from "shared/styles/Form.styled";
 import { login } from "redux/auth/auth-operations";
-import Button from '@mui/material/Button';
-
 
 export default function LoginForm () {
 
@@ -35,12 +33,8 @@ export default function LoginForm () {
             email,
             password
         }
-        try {
-            dispatch(login(user))
-            Notify.success(`successfully login`)
-        } catch (e) {
-            Notify.error(` error`)
-        }
+        
+        dispatch(login(user))
         resetForm()
     }
  

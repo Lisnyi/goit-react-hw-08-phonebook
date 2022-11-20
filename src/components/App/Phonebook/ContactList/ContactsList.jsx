@@ -1,12 +1,12 @@
-import { ContactRegister } from './ContactsList.styled'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import { getFilter } from 'redux/filter'
 import { ContactItem } from './ContactsItem/ContactsItem'
-
+import { ContactRegister } from './ContactsList.styled'
 
 export const ContactsList = ({contacts}) => {
     const filter = useSelector(getFilter)
+
     const getSortedContacts = data => {
       const list = [...data]
       const sortedList = list.sort((a, b) => a.name.localeCompare(b.name));

@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { Notify } from "notiflix";
 
 import * as api from '../../shared/api/api';
 
@@ -7,12 +8,14 @@ export const signup = createAsyncThunk(
     async(data, { rejectWithValue }) => {
         try {
             const result = await api.signup(data);
+            Notify.success(`User ${result.user.name} is successfully registered`)
             return result;
         } catch({response}) {
             const error = {
                 status: response.status,
                 message: response.data.message,
             }
+            Notify.failure(`Error: ${error.message}`)
             return rejectWithValue(error);
         }
     }
@@ -23,12 +26,14 @@ export const login = createAsyncThunk(
     async(data, { rejectWithValue }) => {
         try {
             const result = await api.login(data);
+            Notify.success(`User ${result.user.name} is successfully logged in`)
             return result;
         } catch({response}) {
             const error = {
                 status: response.status,
                 message: response.data.message,
             }
+            Notify.failure(`No user found`)
             return rejectWithValue(error);
         }
     }
@@ -45,6 +50,7 @@ export const logout = createAsyncThunk(
                 status: response.status,
                 message: response.data.message
             }
+            Notify.failure(`Oops, something went wrong`)
             return rejectWithValue(error);
         }
     }
