@@ -17,6 +17,15 @@ function stringToColor(string) {
   }
   
 export default function stringAvatar(name) {
+    if (name.split(' ').length === 1) {
+      return {
+        sx: {
+          bgcolor: stringToColor(name),
+        },
+        children: `${name.split(' ')[0][0]}`,
+      };
+    }
+
     return {
       sx: {
         bgcolor: stringToColor(name),
